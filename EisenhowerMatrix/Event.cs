@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace EisenhowerMatrix
 {
-    internal class Event
+    public class Event
     {
         //public DateTime Date {get;set;}
         public string Name {get;set;}
         public bool is_important { get;set;}
         public bool is_urgent { get;set;}
-        Event(string Name, bool importance, bool urgency)
+        public Event(string Name, bool importance, bool urgency)
         {
             this.Name = Name;
             this.is_important = importance;

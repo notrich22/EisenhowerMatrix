@@ -6,33 +6,39 @@ using System.Threading.Tasks;
 
 namespace EisenhowerMatrix
 {
-    internal class Matrix
+    public class Matrix
     {
         public List<Event> ToDo { get; set; }
         public List<Event> ToDecide { get; set; }
         public List<Event> ToDelegate { get; set; }
         public List<Event> ToEliminate { get; set; }
-
+        public Matrix()
+        {
+            ToDo = new List<Event>();
+            ToDecide = new List<Event>();
+            ToDelegate = new List<Event>();
+            ToEliminate = new List<Event>();
+        }
         public void Add_Event(Event e)
         {
             if(e.is_important && e.is_urgent)
             {
-                ToDo.Append(e);
+                ToDo.Add(e);
                 return;
             }
             if(e.is_important && !e.is_urgent)
             {
-                ToDecide.Append(e);
+                ToDecide.Add(e);
                 return;
             }
             if(!e.is_important && e.is_urgent)
             {
-                ToDelegate.Append(e);
+                ToDelegate.Add(e);
                 return;
             }
             if(!e.is_important && !e.is_urgent)
             {
-                ToEliminate.Append(e);
+                ToEliminate.Add(e);
                 return;
             }
         }

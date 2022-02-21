@@ -16,15 +16,27 @@ namespace EisenhowerMatrix
         {
             InitializeComponent();
         }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
+            this.Close();
+        }
 
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        public Event ReturnEvent()
         {
-            EisenhowerMatrix.matrix
+            string Name;
+            if (!String.IsNullOrEmpty(textBox1.Text))
+                Name = textBox1.Text;
+            else Name = "";
+            var importance = radioButton1.Checked ? true : radioButton2.Checked ? false : false;
+            var urgency = radioButton3.Checked ? true : radioButton4.Checked ? false : false;
+            Event eve = new Event(Name, importance, urgency);
+            return eve;
         }
     }
 }
